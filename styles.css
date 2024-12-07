@@ -1,0 +1,184 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #01ff5e;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    margin-top: 20px;
+}
+.wheel-container {
+    margin: 20px auto;
+    position: relative;
+}
+.question-container {
+    display: none;
+    margin-top: 20px;
+    color: #1976D2;
+  }
+canvas {
+    border: 5px solid #333;
+    border-radius: 50%;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: #45a049;
+}
+.answer {
+    display: inline-block;
+    width: 200px;
+    height: 60px;
+    margin: 10px;
+    background-color: #2196F3;
+    text-align: center;
+    line-height: 60px;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#starsCounter, #correctAnswersCounter {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+  #level {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  #endGameMessage {
+    font-size: 20px;
+    color: green;
+    font-weight: bold;
+    display: none;
+  }
+
+  #restartButtonContainer {
+    display: none;
+  }
+
+  #restartButton {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+.answer:hover {
+    background-color: #1976D2;
+}
+.answer.correct {
+    background-color: #4CAF50; /* Correcto: Verde */
+}
+.answer.incorrect {
+    background-color: #FF5733; /* Incorrecto: Rojo */
+}
+#nextQuestion {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+}
+#nextQuestion:hover {
+    background-color: #45a049;
+}
+#nextQuestion button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+.hidden {
+    display: none;
+}
+h1 {
+    color: #333;
+    font-size: 36px;
+    font-weight: bold;
+}
+/* Estilo para las estrellas y respuestas correctas */
+.stars {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+}
+.stars span {
+    color: gold;
+}
+.correctAnswers {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    font-size: 18px;
+}
+/* Estilo para el mensaje de fin de juego */
+#endGameMessage {
+    font-size: 48px;
+    color: #FF5733;
+    font-weight: bold;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Estilo para el botón de "Jugar de nuevo" */
+#playAgainButton {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    margin-top: 20px;
+}
+#playAgainButton:hover {
+    background-color: #45a049;
+}
+#wheel {
+    border: 2px solid black;
+}
+#question-container {
+    margin-top: 20px;
+}
+
+#game-over-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: rgb(255, 12, 12);
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}

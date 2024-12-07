@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="manifest" href="./manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('./sw.js')
+                .then((registration) => {
+                    console.log('Service Worker registrado con éxito:', registration);
+                })
+                .catch((error) => {
+                    console.error('Error al registrar el Service Worker:', error);
+                });
+        }
+    </script>
+    <title>Ruleta de Colores - Quiz</title>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Cuánto sabes de Historia?</h1>
+        
+        <!-- Ruleta -->
+        <div class="wheel-container">
+            <canvas id="wheel" width="400" height="400"></canvas>
+        </div>
+        
+        <!-- Botón de giro -->
+        <button id="spinButton">Girar Ruleta</button>
+
+        <!-- Contadores de estrellas y respuestas -->
+        <div class="info">
+            <div class="stars">
+                <span id="starsCounter">0 Estrellas</span>
+            </div>
+            <div class="correctAnswers">
+                <span id="correctAnswersCounter">Respuestas Correctas: 0</span>
+            </div>
+        </div>
+        
+        <!-- Nivel Actual -->
+        <div class="level">
+            <span id="level">Nivel: 1</span>
+        </div>
+        <!-- Pregunta y respuestas -->
+        <div id="question-container">
+            <p id="question-text"></p>
+            <div id="answers">
+                <!-- Las opciones de respuesta se generan dinámicamente -->
+            </div>
+            <button id="nextQuestion" class="hidden">Siguiente Pregunta</button>
+        </div>
+
+        <!-- Modal de fin de juego -->
+        <div id="game-over-modal" style="display: none;">
+            <div class="modal-content">
+                <h2>¡Juego Terminado!</h2>
+                <p id="correct-answers">Respuestas correctas: 0</p>
+            </div>
+        </div>
+        
+        <!-- Mensaje de fin de juego -->
+        <div id="endGameMessage" class="hidden">¡Juego Finalizado!</div>
+
+        <!-- Contenedor para el botón de reinicio -->
+        <div id="restartButtonContainer" class="hidden">
+            <button id="restartButton">Jugar de nuevo</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
