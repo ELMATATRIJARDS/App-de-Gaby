@@ -76,7 +76,7 @@ if ("serviceWorker" in navigator) {
   let currentLevel = 1; // Nivel inicial
   
   // Elementos del DOM
-  const wheel = document.getElementById("wheel");
+const wheel = document.getElementById("wheel");
 const ctx = wheel.getContext("2d");
 const spinButton = document.getElementById("spinButton");
 const questionContainer = document.getElementById("question-container");
