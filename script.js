@@ -65,7 +65,7 @@ if ("serviceWorker" in navigator) {
     { question: "37) ¿De qué país es el pisco?", answers: ["Chile", "Argentina", "Perú"], correct: 2 },
     { question: "38) ¿En qué departamento se encuentra Machu Picchu?", answers: ["Puno", "Cusco", "Arequipa"], correct: 1 },
     { question: "39) ¿Cuál es el continente más grande del mundo?", answers: ["África", "América", "Asia"], correct: 2 },
-    { question: "40. ¿A qué departamento del Perú se le denomina 'La Tierra de la Eterna Primavera'?", answers: ["Cusco", "Arequipa", "Trujillo"], correct: 2 },
+    { question: "40) ¿A qué departamento del Perú se le denomina 'La Tierra de la Eterna Primavera'?", answers: ["Cusco", "Arequipa", "Trujillo"], correct: 2 },
   ];
   
   // Variables de juego
@@ -173,33 +173,56 @@ function startTimer() {
         }
     }, 1000);
 }
-  // Dibuja la ruleta
-  function drawWheel() {
-      const segments = ["Pregunta 1", "Pregunta 2", "Pregunta 3", "Pregunta 4", "Pregunta 5", "Pregunta 6"];
-      const colors = ["#FF5733", "#33FF57", "#3357FF", "#FFC300", "#DAF7A6", "#581845"];
-      const arc = (2 * Math.PI) / segments.length;
+function drawWheel() {
+    // 40 preguntas
+    const segments = [
+        "Pregunta 1", "Pregunta 2", "Pregunta 3", "Pregunta 4", "Pregunta 5", "Pregunta 6", 
+        "Pregunta 7", "Pregunta 8", "Pregunta 9", "Pregunta 10", "Pregunta 11", "Pregunta 12", 
+        "Pregunta 13", "Pregunta 14", "Pregunta 15", "Pregunta 16", "Pregunta 17", "Pregunta 18", 
+        "Pregunta 19", "Pregunta 20", "Pregunta 21", "Pregunta 22", "Pregunta 23", "Pregunta 24", 
+        "Pregunta 25", "Pregunta 26", "Pregunta 27", "Pregunta 28", "Pregunta 29", "Pregunta 30", 
+        "Pregunta 31", "Pregunta 32", "Pregunta 33", "Pregunta 34", "Pregunta 35", "Pregunta 36", 
+        "Pregunta 37", "Pregunta 38", "Pregunta 39", "Pregunta 40"
+    ];
   
-      segments.forEach((segment, index) => {
-          const startAngle = index * arc;
-          const endAngle = startAngle + arc;
-          ctx.beginPath();
-          ctx.arc(200, 200, 200, startAngle, endAngle);
-          ctx.lineTo(200, 200);
-          ctx.fillStyle = colors[index % colors.length];
-          ctx.fill();
-          ctx.stroke();
-          ctx.closePath();
+    // 40 colores
+    const colors = [
+        "#FF5733", "#33FF57", "#3357FF", "#FFC300", "#DAF7A6", "#581845", 
+        "#FF6347", "#40E0D0", "#8A2BE2", "#FF8C00", "#3CB371", "#A52A2A", 
+        "#5F9EA0", "#D2691E", "#FF1493", "#FFFF00", "#CD5C5C", "#8B0000", 
+        "#4B0082", "#00FF00", "#800080", "#0000FF", "#FFD700", "#C71585", 
+        "#FF4500", "#32CD32", "#ADFF2F", "#8B008B", "#00FFFF", "#7FFF00", 
+        "#00008B", "#8A2BE2", "#F0E68C", "#B0C4DE", "#FF1493", "#4682B4", 
+        "#D8BFD8", "#DAA520", "#800000", "#000080"
+    ];
+
+    const arc = (2 * Math.PI) / segments.length;  // Dividir la circunferencia por el número de segmentos
   
-          ctx.save();
-          ctx.translate(200, 200);
-          ctx.rotate(startAngle + arc / 2);
-          ctx.textAlign = "right";
-          ctx.fillStyle = "black";
-          ctx.font = "18px Arial";
-          ctx.fillText(segment, 180, 10);
-          ctx.restore();
-      });
-  }
+    segments.forEach((segment, index) => {
+        const startAngle = index * arc;
+        const endAngle = startAngle + arc;
+
+        // Dibuja el segmento
+        ctx.beginPath();
+        ctx.arc(200, 200, 200, startAngle, endAngle);
+        ctx.lineTo(200, 200);
+        ctx.fillStyle = colors[index % colors.length]; // Asigna el color al segmento
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        // Dibuja el texto
+        ctx.save();
+        ctx.translate(200, 200);  // Mueve el origen al centro
+        ctx.rotate(startAngle + arc / 2);  // Rota para que el texto se alinee correctamente
+        ctx.textAlign = "center";  // Centra el texto
+        ctx.fillStyle = "white";  // Establece el color del texto a blanco
+        ctx.font = "14px Arial";  // Ajusta el tamaño de la fuente
+        ctx.fillText(segment, 0, -90);  // Coloca el texto en el centro del segmento
+        ctx.restore();
+    });
+}
+
   
   // Función para hacer girar la ruleta
   function spinWheel() {
