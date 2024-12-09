@@ -1,0 +1,196 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: radial-gradient(circle at 31.7% 118.3%, #ffffff 0, #fee9ff 16.67%, #e6cffb 33.33%, #c8b5f2 50%, #a39dea 66.67%, #7789e4 83.33%, #357ade 100%);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Botón de inicio */
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05); /* Le da un pequeño zoom al pasar el cursor */
+}
+
+button:active {
+    transform: scale(0.95); /* Efecto de pulsación */
+}
+
+.answer {
+    display: inline-block;
+    width: 200px;
+    height: 60px;
+    margin: 10px;
+    background-color: #2196F3;
+    text-align: center;
+    line-height: 60px;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.answer:hover {
+    background-color: #1976D2;
+}
+
+.answer.correct {
+    background-color: #4CAF50;
+}
+
+.answer.incorrect {
+    background-color: #FF5733;
+}
+
+#starsCounter, #correctAnswersCounter {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+#levelDisplay {
+    margin-top: 20px; /* Ajusta el valor según necesites */
+    font-size: 18px; /* Opcional: para asegurarte de que sea legible */
+}
+
+
+#level {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#restartButton {
+    background-color: #ff5733;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#restartButton:hover {
+    background-color: #c44129;
+}
+
+#restartButtonContainer {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    color: #333;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Lobster', cursive; /* Nueva fuente */
+    text-align: center; /* Opcional para centrar */
+    margin-bottom: 20px; /* Espaciado adicional */
+}
+
+
+.stars {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+}
+
+.stars span {
+    color: gold;
+}
+
+.correctAnswers {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    font-size: 18px;
+}
+
+#endGameMessage {
+    font-size: 48px;
+    color: #0044ff;
+    font-weight: bold;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Modal de fin de juego */
+#game-over-modal {
+    background-color: linear-gradient(180deg, #f2bfff 0, #d5aeff 25%, #b99df2 50%, #9e8cd6 75%, #867bbc 100%);;
+    background-color: linear-gradient(180deg, #f2bfff 0, #d5aeff 25%, #b99df2 50%, #9e8cd6 75%, #867bbc 100%);
+    padding: 20px;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow: 0 5px 15px rgba(46, 5, 255, 0.819);
+}
+
+.modal-content {
+    background-color: linear-gradient(180deg, #f2bfff 0, #d5aeff 25%, #b99df2 50%, #9e8cd6 75%, #867bbc 100%);
+    padding: 20px;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow: 0 5px 15px rgba(46, 5, 255, 0.819);
+}
+
+/* Estilos para botones y contadores */
+#spinButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .answer {
+        width: 90%;
+        font-size: 16px;
+        margin: 5px auto;
+    }
+
+    .stars, .correctAnswers {
+        position: static;
+        margin: 10px 0;
+    }
+
+    #nextQuestion {
+        bottom: 10px;
+        right: 10px;
+    }
+}
